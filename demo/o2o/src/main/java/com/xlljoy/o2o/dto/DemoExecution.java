@@ -34,6 +34,7 @@ public class DemoExecution {
 		this.stateInfo = stateEnum.getStateInfo();
 	}
 
+
 	public String getEnglishResult() {
 		return EnglishResult;
 	}

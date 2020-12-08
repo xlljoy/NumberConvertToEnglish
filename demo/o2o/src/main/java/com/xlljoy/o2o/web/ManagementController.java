@@ -1,4 +1,4 @@
-package com.xlljoy.o2o.web.shopadmin;
+package com.xlljoy.o2o.web;
 
 
 import java.util.HashMap;
@@ -22,12 +22,14 @@ public class ManagementController {
 	@ResponseBody
 	private Map<String, Object> getNumberConvetted(@RequestParam(value = "number") String numberInput) {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
+		DemoExecution demoExecution;
 		int number = Integer.MIN_VALUE;
         int originalNumber = number;
         // return failure if input is out of range
         if (numberInput.length() > Integer.toString(Integer.MAX_VALUE).length()) {
+        	demoExecution = new DemoExecution(ConversionResultEnum.OUTOFRANGE);
     		modelMap.put("success", false);
-    		modelMap.put("errMsg", String.format("please input number within the range of [%s, %s]", Integer.MIN_VALUE, Integer.MAX_VALUE));
+    		modelMap.put("errMsg", demoExecution.getStateInfo());
     		return modelMap;
         }
 
@@ -43,25 +45,25 @@ public class ManagementController {
             number = Math.abs(number);
         } catch (Exception e) {
         	// return, if it failed to parse, illegal inputs
-        	
+        	demoExecution = new DemoExecution(ConversionResultEnum.ILLEGAL_INPUT);
     		modelMap.put("success", false);
-    		modelMap.put("errMsg", "please input number");
+    		modelMap.put("errMsg", demoExecution.getStateInfo());
     		e.printStackTrace();
     		return modelMap;
         }
         DemoConversion service = new DemoConversion();
         // do the translation
-		DemoExecution de = service.getEnglishWord(number);
+        demoExecution = service.getEnglishWord(number);
         
 		// check the translate result
-		if (de.getState() == ConversionResultEnum.SUCCESS.getState()) {
-			result.append(de.getEnglishResult());
+		if (demoExecution.getState() == ConversionResultEnum.SUCCESS.getState()) {
+			result.append(demoExecution.getEnglishResult());
 			modelMap.put("English", result);
 			modelMap.put("success", true);
 			return modelMap;
 		}
 		modelMap.put("success", false);
-		modelMap.put("errMsg", de.getStateInfo());
+		modelMap.put("errMsg", demoExecution.getStateInfo());
 		return modelMap;
 	}
 

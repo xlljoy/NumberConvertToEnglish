@@ -1,7 +1,7 @@
 package com.xlljoy.o2o.enums;
 
 public enum ConversionResultEnum {
-    OUTOFRANGE(-1, "Input is out of range"), 
+    OUTOFRANGE(-1, String.format("please input number within the range of [%s, %s]", Integer.MIN_VALUE, Integer.MAX_VALUE)), 
     SUCCESS(1, "succeed"), 
     INNER_ERROR(-1001, "Operation failed"),
     ILLEGAL_INPUT(-1001, "Please input a number");
