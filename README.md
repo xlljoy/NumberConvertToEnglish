@@ -1,18 +1,18 @@
 # NumberConvertToEnglish
 Number convert to English
 
-1. download the project to your cp/server by, 
+1. Download the project to your cp/server by, 
 
 	  `git clone https://github.com/xlljoy/NumberConvertToEnglish.git`
 
-2. download Tomcat online https://tomcat.apache.org/download-90.cgi (there is an option `tar.gz (pgp, sha512)` for linux and Mac) and extract it,
+2. Download Tomcat online https://tomcat.apache.org/download-90.cgi (there is an option `tar.gz (pgp, sha512)` for linux and Mac) and extract it,
 	
     `tar -zxvf apache-tomcat-9.0.34.tar.gz`
 
    you will see a forlder generated: 
    `./apache-tomcat-9.0.34`
 
-3. start Tomcat: 
+3. Start Tomcat: 
 	
     `./apache-tomcat-9.0.34/bin/startup.sh`
 
@@ -39,7 +39,7 @@ Number convert to English
 
 7. Support range: int, positive, negative. Any illegal input would product a warning correspondingly.
 
-8. shutdown Tomcat or restart it: 
+8. Shutdown Tomcat or restart it: 
   
      `./apache-tomcat-9.0.34/bin/shutdown.sh`
      
