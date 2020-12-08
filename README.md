@@ -28,9 +28,9 @@ Number convert to English
      
       `./apache-tomcat-9.0.34/bin/startup.sh`
 
-4. Copy `./NumberConvertToEnglish/NumberToEnglish.war` to Tomcat webadds folder,
+4. Copy `./NumberConvertToEnglish/o2o.war` to Tomcat webadds folder,
 	
-    `cp ./NumberConvertToEnglish.war ~/apache-tomcat-9.0.34/webapps/`
+    `cp ./o2o.war ~/apache-tomcat-9.0.34/webapps/`
 
 
 5. Open the brower and input 'http://localhost:8080/o2o/admin/conversion';
