@@ -24,6 +24,8 @@ Number convert to English
 
 		 If so, please try:
      
+ 	`chmod +x ./apache-tomcat-9.0.34/bin/startup.sh`
+	
       `chmod a+x ./apache-tomcat-9.0.34/bin/catalina.sh`
      
       `./apache-tomcat-9.0.34/bin/startup.sh`
